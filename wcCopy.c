@@ -131,6 +131,7 @@ void all_option(char *file,char *argm)
 			int nbr=wcOption_c(fichier);
 			char *chaine=allocation(nbr);
 			printf("%d %s\n",wcOption_w(fichier,file,chaine,nbr),file);
+			free(chaine);
 		}
 		else if(strcmp(argm,"-L") == 0 || strcmp(argm,"--max-line-length") == 0 )
 		{
@@ -188,6 +189,7 @@ void optUn(FILE *fichier,char *opt,char *file)
 				int nbr=wcOption_c(fichier);
 				char *chaine=allocation(nbr);
 				printf(" %d ",wcOption_l(fichier,file,chaine,nbr));
+				free(chaine);
 			}
 			else if(opt[j] == 'c' || opt[j] == 'm')
 			{
@@ -198,6 +200,7 @@ void optUn(FILE *fichier,char *opt,char *file)
 				int nbr=wcOption_c(fichier);
 				char *chaine=allocation(nbr);
 				printf(" %d ",wcOption_w(fichier,file,chaine,nbr));
+				free(chaine);
 			}
 			else if(opt[j] == 'L' )
 			{
